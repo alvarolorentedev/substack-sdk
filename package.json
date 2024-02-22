@@ -1,0 +1,49 @@
+{
+  "name": "substack-sdk",
+  "version": "0.1.7",
+  "description": "alvarolorentedev implementation for rest server",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:dev": "jest --watch-all",
+    "test:cov": "jest --coverage && codecov",
+    "push": "yarn test && git push",
+    "deploy:major": "yarn version --major",
+    "deploy:minor": "yarn version --minor",
+    "deploy:patch": "yarn version --patch",
+    "deploy:push": "git push && git push --tags",
+    "preversion": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvarolorentedev/substack-sdk.git"
+  },
+  "keywords": [],
+  "author": "alvarolorentedev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alvarolorentedev/substack-sdk/issues"
+  },
+  "homepage": "https://github.com/alvarolorentedev/substack-sdk#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/renderer/themes/**",
+      "!src/types/**",
+      "!src/**/*.d.ts"
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.12",
+    "codecov": "^3.8.3",
+    "jest": "29.7.0",
+    "ts-jest": "29.1.2",
+    "typescript": "5.3.3"
+  }
+}
