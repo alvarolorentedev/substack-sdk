@@ -9,9 +9,9 @@
     "test:dev": "jest --watch-all",
     "test:cov": "jest --coverage && codecov",
     "push": "npm run test && git push",
-    "deploy:major": "npm run version major",
-    "deploy:minor": "npm run version minor",
-    "deploy:patch": "npm run version patch",
+    "deploy:major": "npm version major",
+    "deploy:minor": "npm version minor",
+    "deploy:patch": "npm version patch",
     "deploy:push": "git push && git push --tags",
     "preversion": "npm run test"
   },
