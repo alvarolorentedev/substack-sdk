@@ -20,7 +20,7 @@ function isText(content: Content): content is Text {
     return (content as Text).message !== undefined;
 }
 
-export const create = async (contents: Content[], attachmentIds?: string) => {
+export const create = async (contents: Content[], attachmentIds?: string[]) => {
     const body = JSON.stringify({
         attachmentIds,
         "bodyJson": {
