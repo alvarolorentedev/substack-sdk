@@ -7,6 +7,7 @@ export const init = async (cookie: string, domain?: string) => {
         baseURL: domain || "https://substack.com",
         headers: {
           "accept": "*/*",
+          "Accept-Encoding": "gzip, deflate",
           "content-type": "application/json",
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
           cookie
