@@ -63,5 +63,5 @@ export const create = async (contents: Content[], attachmentIds?: string[]) => {
     })
     console.log(body);
     
-    return (await requester.post("/api/v1/comment/feed", body)).data
+    return JSON.parse((await requester.post("/api/v1/comment/feed", body)).data)
 }
