@@ -24,7 +24,8 @@ Before any use you will require to initialize this SDK by copying the cookie to 
 import substack from "substack-sdk"
 
 const cookie = "your substack cookie"
-substack.init(cookie)
+const domain = "your substack domain" // optional in most cases, but required for things like subscribers
+substack.init(cookie, options)
 ```
 
 ### Images
@@ -41,7 +42,6 @@ ex: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAk0AAAJUCAIAAACHQYVcAAAACXBIWX
 const uploadImageRespose = await substack.image.upload(imageString)
 
 ```
-
 
 ### Attachemnts
 
@@ -60,6 +60,8 @@ const attachmentResponse2 = await substack.attachment.create("link","https://www
 ```
 
 ### Notes
+
+#### Add
 
 This is the simplest type of user interactive object, where you can use the attachments defined in the previous section.
 
@@ -91,13 +93,25 @@ const createNoteRespose = await substack.note.create([
 ], [attachmentResponse.id, attachmentResponse2.id])
 ```
 
+### Subscribers
+
+This provides you access to the paginated set of your subscribers. This will require you to initialize the api with the correct domain of your newsletter.
+ 
+This endpoint is paginated so you will need to pass the number of records to retrieve and the offset as second parameter.
+
+```ts
+import substack from "substack-sdk"
+
+await substack.subscribers.retrieve(50,0)
+```
+
 ## Roadmap
 
 - [x] Images
 - [x] Notes
 - [x] Attachments
 - [ ] Threads
-- [ ] Subscribers
+- [x] Subscribers
 - [ ] Articles
 - ...
 
