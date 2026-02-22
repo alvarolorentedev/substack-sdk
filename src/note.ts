@@ -58,10 +58,9 @@ export const create = async (contents: Content[], attachmentIds?: string[]) => {
                 }
         })
         },
-        "tabId": "for-you",
+        "surface": "profile",
         "replyMinimumRole": "everyone"
     })
-    console.log(body);
     
     return JSON.parse((await requester.post("/api/v1/comment/feed", body)).data)
 }
